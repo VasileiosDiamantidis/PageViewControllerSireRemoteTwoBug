@@ -1,5 +1,5 @@
 # PageViewControllerSireRemoteTwoBug
-This Repository is to detect bugs on navigation with siri 2nd generation remote
+This Repository is to detect bugs on navigation with siri 2nd generation remote on UIPageViewController
 
 
 This Repository contains 3 branches 
@@ -19,5 +19,14 @@ The tap left/right presses are not being detected
 Shows that on after adding UITapGestureRecognizer on view for pressTypes <br>
 top, bottom, left, right
 
-Onle the press top and press bottom are being triggered.
+Only the press top and press bottom are being triggered.
 
+
+ <b> Relevant documentation </b>
+
+https://developer.apple.com/documentation/uikit/uipageviewcontroller
+
+❗️ 
+Important
+
+In tvOS, the UIPageViewController class provides only a way to swipe between full-screen content pages. Unlike in iOS, a user cannot interact with or move focus between items on each page.
