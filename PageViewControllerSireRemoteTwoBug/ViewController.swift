@@ -24,6 +24,7 @@ class ViewController: UIPageViewController, UIPageViewControllerDataSource, UIPa
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         configurePages()
+        setUpGestures()
         dataSource = self
         delegate = self
         setViewControllers([one], direction: .forward, animated: true, completion: nil)
@@ -56,5 +57,54 @@ class ViewController: UIPageViewController, UIPageViewControllerDataSource, UIPa
             return nil
         }
     }
+    
+    // MARK: - Gestures
+    
+    func setUpGestures() {
+        
+        let tapUpGestureRecognizer = UITapGestureRecognizer(target: self, action: .tapUpGestureWasTriggered)
+        // upArrow -> 0
+        tapUpGestureRecognizer.allowedPressTypes = [0]
+        view.addGestureRecognizer(tapUpGestureRecognizer)
+        
+        let tapDownGestureRecognizer = UITapGestureRecognizer(target: self, action: .tapDownGestureWasTriggered)
+        // downArrow -> 1
+        tapDownGestureRecognizer.allowedPressTypes = [1]
+        view.addGestureRecognizer(tapDownGestureRecognizer)
+        
+        let tapLeftGestureRecognizer = UITapGestureRecognizer(target: self, action: .tapLeftGestureWasTriggered)
+        // leftArrow -> 2
+        tapLeftGestureRecognizer.allowedPressTypes = [2]
+        view.addGestureRecognizer(tapLeftGestureRecognizer)
+        
+        let tapRightGestureRecognizer = UITapGestureRecognizer(target: self, action: .tapRightGestureWasTriggered)
+        // rightArrow -> 3
+        tapRightGestureRecognizer.allowedPressTypes = [3]
+        view.addGestureRecognizer(tapRightGestureRecognizer)
+    }
+    
+    @objc func tapUpGestureWasTriggered(gesture: UIGestureRecognizer) {
+        print("tapUpGestureWasTriggered ✅") // ✅
+    }
+    
+    @objc func tapDownGestureWasTriggered(gesture: UIGestureRecognizer) {
+        print("tapDownGestureWasTriggered ✅") // ✅
+    }
+    
+    @objc func tapLeftGestureWasTriggered(gesture: UIGestureRecognizer) {
+        print("tapLeftGestureWasTriggered ❌") // ❌
+    }
+    
+    @objc func tapRightGestureWasTriggered(gesture: UIGestureRecognizer) {
+        print("tapRightGestureWasTriggered ❌") // ❌
+    }
 }
+
+private extension Selector {
+    static let tapUpGestureWasTriggered = #selector(ViewController.tapUpGestureWasTriggered)
+    static let tapDownGestureWasTriggered = #selector(ViewController.tapDownGestureWasTriggered)
+    static let tapLeftGestureWasTriggered = #selector(ViewController.tapLeftGestureWasTriggered)
+    static let tapRightGestureWasTriggered = #selector(ViewController.tapRightGestureWasTriggered)
+}
+
 
