@@ -9,7 +9,7 @@ Shows the bug that in a pageViewController with 3 pages the press left/right wor
 Demo video: https://drive.google.com/file/d/1p6L3KsTIafcgdMCleljHzt9FmelgjFpm/view
 
 
-<br>
+<br><br><br>
  <b> Relevant documentation </b>
 
 https://developer.apple.com/documentation/uikit/uipageviewcontroller
