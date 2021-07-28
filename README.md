@@ -8,6 +8,8 @@ This Repository contains 3 branches
 Shows the bug that in a pageViewController with 3 pages the press left/right works sometimes instead of everytime <br>
 Demo video: https://drive.google.com/file/d/1p6L3KsTIafcgdMCleljHzt9FmelgjFpm/view
 
+
+<br>
  <b> Relevant documentation </b>
 
 https://developer.apple.com/documentation/uikit/uipageviewcontroller
