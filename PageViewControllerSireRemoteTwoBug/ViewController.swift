@@ -29,6 +29,38 @@ class ViewController: UIPageViewController, UIPageViewControllerDataSource, UIPa
         setViewControllers([one], direction: .forward, animated: true, completion: nil)
     }
     
+    override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        print(#function)
+        for press in presses {
+            switch press.type {
+            case .select:
+                print(".select")
+            case .upArrow:
+                print("upArrow")
+            case .downArrow:
+                print("downArrow")
+            case .leftArrow:
+                print("leftArrow")
+            case .rightArrow:
+                print("rightArrow")
+            case .menu:
+                print("menu")
+            case .playPause: 
+                print("playPause")
+            default:
+                if #available(tvOS 14.3, *) {
+                    if press.type == .pageUp {
+                        print("pageUP")
+                    } else if press.type == .pageDown {
+                        print("pageDown")
+                    }
+                }
+                super.pressesBegan(presses, with: event)
+                break
+            }
+        }
+    }
+    
     private func configurePages() {
         one = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "OneViewController") as? OneViewController
         two = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TwoViewController") as? TwoViewController
